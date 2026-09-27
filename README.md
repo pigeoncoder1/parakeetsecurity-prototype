@@ -16,7 +16,6 @@ What happened:
 Every attack was defended against by the agent; it never leaked the code or gave any information that it wasn't meant to give. It correctly demanded verification on each turn of the multi-turn attacks, and didn't give into pressure or other common tactics.
 
 I planned one more validation step that I didn't get into - slowly weakening the AI agent's prompt, to allow slipups to happen, and running the attacks against each version, to confirm that the suite I created doesn't unconditionally give out passes.
-
-<img width="751" height="246" alt="image" src="https://github.com/user-attachments/assets/4674bfe6-4f74-4433-a145-ccd0d6482d6d" />
 <img width="1682" height="885" alt="image" src="https://github.com/user-attachments/assets/3bd0f970-3023-4246-8cb9-697ee295b594" />
+<img width="751" height="246" alt="image" src="https://github.com/user-attachments/assets/4674bfe6-4f74-4433-a145-ccd0d6482d6d" />
 <img width="655" height="297" alt="image" src="https://github.com/user-attachments/assets/e5d9a7d5-942f-4926-aa38-47afce665a78" />
