@@ -3,9 +3,4 @@ __pycache__/
 *.pyc
 .env
 keys
-
-# dashboard/ (Vite + React frontend)
-dashboard/node_modules/
-dashboard/dist/
-
-dashboard
+dashboard/
