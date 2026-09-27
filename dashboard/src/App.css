@@ -1,0 +1,326 @@
+/* Riverbank Assistant attack-results dashboard.
+   Plain, minimal styling - muted pass/fail tones rather than pure red/green,
+   readable in both light and dark. */
+
+:root {
+  --bg: #ffffff;
+  --panel-bg: #fafafa;
+  --border: #e2e2e5;
+  --text: #1c1c1f;
+  --text-muted: #6b6b73;
+
+  --success-bg: #f4dede;
+  --success-text: #8a3a3a;
+  --failure-bg: #dbe8e0;
+  --failure-text: #33604a;
+  --neutral-bg: #eee8d8;
+  --neutral-text: #7a6a3a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17171a;
+    --panel-bg: #1e1e22;
+    --border: #333338;
+    --text: #ececef;
+    --text-muted: #9a9aa2;
+
+    --success-bg: #3a2626;
+    --success-text: #e0a8a8;
+    --failure-bg: #223229;
+    --failure-text: #9ccbb0;
+    --neutral-bg: #33301f;
+    --neutral-text: #d8c887;
+  }
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* --- Summary bar --- */
+
+.summary-bar {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.summary-stat {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.summary-stat-value {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.summary-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.summary-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* --- Overall layout --- */
+
+.app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.load-error {
+  padding: 32px;
+  color: var(--text-muted);
+}
+
+/* --- Left panel: attack list --- */
+
+.attack-list {
+  width: 280px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+  background: var(--panel-bg);
+}
+
+.attack-list-group {
+  padding: 8px 0;
+}
+
+.attack-list-group-title {
+  margin: 8px 16px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.attack-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.attack-list-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  font: inherit;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.attack-list-row:hover {
+  background: var(--border);
+}
+
+.attack-list-row.is-selected {
+  background: var(--border);
+  font-weight: 600;
+}
+
+.attack-list-id {
+  flex: 1;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.disagree-icon {
+  font-size: 13px;
+  color: var(--neutral-text);
+}
+
+/* --- Badges (used in the list) --- */
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge-success {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.badge-failure {
+  background: var(--failure-bg);
+  color: var(--failure-text);
+}
+
+.badge-error,
+.badge-unknown {
+  background: var(--neutral-bg);
+  color: var(--neutral-text);
+}
+
+/* --- Right panel: attack detail --- */
+
+.detail-panel {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+}
+
+.detail-panel-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+.detail-header {
+  margin-bottom: 24px;
+}
+
+.detail-category {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.detail-header h2 {
+  margin: 4px 0 8px;
+  font-size: 20px;
+}
+
+.detail-description {
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+
+/* --- Transcript --- */
+
+.transcript {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.transcript-turn {
+  max-width: 65ch;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.transcript-turn p {
+  margin: 4px 0 0;
+  white-space: pre-wrap;
+}
+
+.transcript-speaker {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.transcript-user {
+  align-self: flex-start;
+  background: var(--panel-bg);
+}
+
+.transcript-assistant {
+  align-self: flex-end;
+  background: var(--bg);
+  border-color: var(--text-muted);
+}
+
+.transcript-empty {
+  color: var(--text-muted);
+}
+
+/* --- Verdicts --- */
+
+.verdicts {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  max-width: 65ch;
+}
+
+.verdicts-disagree {
+  border-color: var(--neutral-text);
+}
+
+.disagree-banner {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--neutral-bg);
+  color: var(--neutral-text);
+  font-size: 13px;
+}
+
+.verdict-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.verdict-name {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.verdict-value {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.verdict-success {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.verdict-failure {
+  background: var(--failure-bg);
+  color: var(--failure-text);
+}
+
+.verdict-error,
+.verdict-unknown {
+  background: var(--neutral-bg);
+  color: var(--neutral-text);
+}
+
+.llm-reason {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
