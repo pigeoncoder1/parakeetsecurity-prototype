@@ -17,3 +17,6 @@ Every attack was defended against by the agent; it never leaked the code or gave
 
 I planned one more validation step that I didn't get into - slowly weakening the AI agent's prompt, to allow slipups to happen, and running the attacks against each version, to confirm that the suite I created doesn't unconditionally give out passes.
 
+<img width="751" height="246" alt="image" src="https://github.com/user-attachments/assets/4674bfe6-4f74-4433-a145-ccd0d6482d6d" />
+<img width="781" height="365" alt="image" src="https://github.com/user-attachments/assets/469ca4d1-443c-47cd-bf58-6c388a53a21d" />
+<img width="655" height="297" alt="image" src="https://github.com/user-attachments/assets/e5d9a7d5-942f-4926-aa38-47afce665a78" />
